@@ -1,0 +1,92 @@
+/*BACKGROUND*/
+.bg {
+    background-image: url("../src/PNG/background-game.png");
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    /*background-size: auto;*/
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: rgb(39, 65, 92);
+    max-height: 80px;
+    width: 100% !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+}
+
+.deckSize {
+    background-color: rgb(162,214,212)
+}
+
+
+/*CONTAINER*/
+.container {
+    width: 100% !important;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+    flex-direction: row;
+}
+
+
+/* RESULTS */
+.currentResults {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: nowrap;
+    width: 100% !important;
+    height: 10vh;
+    font-family: Bangers;
+    font-size: 30px;
+}
+
+.results {
+    font-size: 36px !important;
+}
+
+.best {
+    padding-right: 360px !important;
+}
+
+.restartButton {
+    max-width: max-content;
+    height:fit-content;
+}
+
+
+/* MAIN */
+.main {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.main * {
+    padding: 8px;
+    cursor: pointer;
+}
+
+/* BUTTONS AND FONTS */
+@font-face {
+    font-family: 'Bangers';
+    src: local('Bangers'), url(../src/GoogleFont/Bangers/Bangers-Regular.ttf) format('truetype');
+}
+
+.btn{
+    font-family: Bangers;
+    max-width: max-content;
+    font-size: 25px;
+}
+
+.btn:hover{
+    background-color: red;
+    border: 1px solid black;
+}
+
