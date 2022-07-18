@@ -10,45 +10,55 @@ const cards=init(nr)
 
 //const score = 0;
 
-
 function App() {
-  //console.log(cards)
 
   const [flipped,setFlipped] =useState([])
   const [solved,setSolved] =useState([])
   const [disabled,setDisabled] =useState(false)
 
-  //const resetButton = document.querySelector('#resetButton')
+  let currentPoints = 0;
+  const currentTries = document.querySelector('.currentTries')
+  let best = document.querySelector('.best')
+  const restartButton = document.querySelector('.restartButton')
+
+
+  const currentTriesFunction = () => {
+    if (currentPoints==10) {
+      console.log('Winner!')
+    }else return
+  }
 
   //FLIPP
   const handleClick=(id)=>{
     setDisabled(true)
     if(flipped.length===0){
-      setFlipped([parseInt(id)])
-      setDisabled(false)
+      setFlipped([parseInt(id)]);
+      setDisabled(false);
     }else{
       if(flipped.includes(id))
           return
       setFlipped([...flipped,id])
       if(isMatch(id)){
-        setSolved([...solved,flipped[0],id])
-        resetCards()
+        setSolved([...solved,flipped[0],id]);
+        resetCards();
+        currentPoints++;
       }else
-        setTimeout(resetCards,1000)
+        setTimeout(resetCards,500)
     }
   }
 
   //MATCHING
   const isMatch=(id)=>{
-    const clickedCard=cards.find(obj=>obj.id===id)
-    const flippedCard=cards.find(obj=>obj.id===flipped[0])
+    const clickedCard=cards.find(obj=>obj.id===id);
+    const flippedCard=cards.find(obj=>obj.id===flipped[0]);
     return clickedCard.src===flippedCard.src
   }
 
   //RESET CARDS
   const resetCards=()=>{
-    setFlipped([])
-    setDisabled(false)
+    setFlipped([]);
+    setDisabled(false);
+    currentPoints = 0;
   }
 
   //RESTART  --in progress
